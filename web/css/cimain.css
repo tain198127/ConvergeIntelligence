@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2013-11-29, 15:38:28
+    Author     : baod
+*/
+.header-bkground{
+    background-color:  #563d7c;
+    background-image: url(image/bkgimg.png);
+    display: block;
+}
+.label-tomato {
+  background-color:tomato
+}
+
+.label-tomato[href]:hover,
+.label-tomato[href]:focus {
+  background-color: #ec971f;
+}
