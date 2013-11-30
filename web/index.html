@@ -13,10 +13,12 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/bootstrap-theme.css">
         <link rel="stylesheet" href="css/cimain.css">
+        <link rel="stylesheet" href="css/slicebox.css">
         <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
         <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
         <script src="js/jquery.json-2.4.js"></script>
         <script src="js/cicore.js"></script>
+        
         <style>
             body{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;}
             h1, .h1, h2, .h2, h3, .h3, h4, .h4, .lead {font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;}
@@ -141,11 +143,17 @@ and open the template in the editor.
                 </ul>
             </div>
             <!--content  -->
-            <div class="container" style="top:50px">
-                <div class="container well-lg">
-                    <p></p>
-                    <p></p>
-                    <p>这里放上一个大的照片墙</p>
+            <div class="container" style="margin:100px 0px 0px 0px;">
+                <div class="container center-block">
+                        <ul  id="photoshow">
+                            <li><img src="image/1.jpg" alt="1" class="img-rounded" /></li>
+                            <li><img src="image/2.jpg" alt="2" class="img-rounded" /></li>
+                            <li><img src="image/3.jpg" alt="3" class="img-rounded"/></li>
+                            <li><img src="image/4.jpg" alt="4" class="img-rounded"/></li>
+                            <li><img src="image/5.jpg" alt="5" class="img-rounded"/></li>
+                            <li><img src="image/6.jpg" alt="6" class="img-rounded"/></li>
+                            <li><img src="image/7.jpg" alt="7" class="img-rounded"/></li>
+                        </ul>
                 </div>
                 <div class="row">
                     <div class="col-sm-5 col-md-3">
@@ -180,7 +188,7 @@ and open the template in the editor.
 
                 <script type="text/javascript">
                     $(function() {
-                        
+
                         $('#testbtn').prop({
                             triggerParam: {
                                 data: {
