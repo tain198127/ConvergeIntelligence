@@ -5,6 +5,7 @@
  * need after jquery
  */
 var www_cicore_request = '';
+var cicore_request = '';
 $(function() {
     www_cicore_request = {
         url: 'Entrance',
@@ -47,6 +48,12 @@ $(function() {
         timeout: 2500,
         type: 'POST'
     };
+    cicore_request = function(cfg){
+        var str = $.toJSON(cfg.data);
+        $.extend(true,cfg,{data:str});
+        var req = $.extend(true,{},www_cicore_request,cfg);
+        $.ajax(req);
+    };
     (function() {
         $('[ajaxsub="true"]')
                 .each(function(item) {
@@ -64,7 +71,7 @@ $(function() {
 
                 });//实际的AJAX请求方法
     })();
-
+    
 
     (function() {
         var finder = $('#photoshow > li');
@@ -75,11 +82,12 @@ $(function() {
         var w = finder.parent().width();
         var timeSpan = 5000;
         var timeoutHandler = '';
+        /*
         finder.parent().css({
             display:'block',
             width:w+'px',
             height:h+'px'
-        });
+        });*/
         var sild = function(idx) {
             var nextIdx = (idx === psLength - 1)?0:idx + 1;
             var pos = $(finder.get(idx)).position();

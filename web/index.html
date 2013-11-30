@@ -18,7 +18,7 @@ and open the template in the editor.
         <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
         <script src="js/jquery.json-2.4.js"></script>
         <script src="js/cicore.js"></script>
-        
+
         <style>
             body{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;}
             h1, .h1, h2, .h2, h3, .h3, h4, .h4, .lead {font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;}
@@ -28,7 +28,7 @@ and open the template in the editor.
     <body >
         <div id="main" class="container">
             <!--banner -->
-            <div id="banner" class="navbar navbar-default navbar-fixed-top" role="banner" style="font-size:22px;">
+            <div id="banner" class="navbar navbar-default" role="banner" style="font-size:22px;display:block;min-height: 400">
                 <div class="container">
                     <ul class="nav navbar-left navbar-text active">
                         <li>
@@ -101,10 +101,6 @@ and open the template in the editor.
                         </li>
                     </ul>
                 </div>
-
-
-
-
             </div>
             <!--left menu -->
             <div id="leftTree" class="silder-menu ">
@@ -143,17 +139,17 @@ and open the template in the editor.
                 </ul>
             </div>
             <!--content  -->
-            <div class="container" style="margin:100px 0px 0px 0px;">
-                <div class="container center-block">
-                        <ul  id="photoshow">
-                            <li><img src="image/1.jpg" alt="1" class="img-rounded" /></li>
-                            <li><img src="image/2.jpg" alt="2" class="img-rounded" /></li>
-                            <li><img src="image/3.jpg" alt="3" class="img-rounded"/></li>
-                            <li><img src="image/4.jpg" alt="4" class="img-rounded"/></li>
-                            <li><img src="image/5.jpg" alt="5" class="img-rounded"/></li>
-                            <li><img src="image/6.jpg" alt="6" class="img-rounded"/></li>
-                            <li><img src="image/7.jpg" alt="7" class="img-rounded"/></li>
-                        </ul>
+            <div class="container">
+                <div class="container">
+                    <ul  id="photoshow">
+                        <li><img src="image/1.jpg" alt="1" class="img-rounded"/></li>
+                        <li><img src="image/2.jpg" alt="2" class="img-rounded" /></li>
+                        <li><img src="image/3.jpg" alt="3" class="img-rounded"/></li>
+                        <li><img src="image/4.jpg" alt="4" class="img-rounded"/></li>
+                        <li><img src="image/5.jpg" alt="5" class="img-rounded"/></li>
+                        <li><img src="image/6.jpg" alt="6" class="img-rounded"/></li>
+                        <li><img src="image/7.jpg" alt="7" class="img-rounded"/></li>
+                    </ul>
                 </div>
                 <div class="row">
                     <div class="col-sm-5 col-md-3">
@@ -182,15 +178,14 @@ and open the template in the editor.
                         </a>
                     </div>
                 </div>
-                <button value="测试按钮" class="btn btn-primary" ajaxsub="true" triggerEvent="click" id="testbtn">"测试按钮"</button>
+                <button value="测试按钮" class="btn btn-primary" id="testbtn">"测试按钮"</button>
 
                 <textarea rows="20" cols="20" class="form-control" id="myComment"></textarea>
-
+                
                 <script type="text/javascript">
                     $(function() {
-
-                        $('#testbtn').prop({
-                            triggerParam: {
+                        $('#testbtn').on('click', function() {
+                            var cfg = {
                                 data: {
                                     action: 'WriteComment',
                                     fullClass: 'www.convergeintelligence.Comment',
@@ -199,8 +194,10 @@ and open the template in the editor.
                                 success: function(data, textStatus, jqXHR) {
                                     alert(jqXHR.responseText);
                                 }
-                            }
-                        })
+                            };
+                            cicore_request(cfg);
+                        });
+
                     });
                 </script>
             </div>

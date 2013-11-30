@@ -8,6 +8,9 @@ package www.convergeintelligence;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.AbstractExecutorService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  *
@@ -26,6 +29,12 @@ public class WebContext {
     private Map<String,Object> _context = new HashMap<String,Object>();
     public Map<String,Object> getContext()
     {
+       
         return _context;
     }
+     private ExecutorService exectorService =  Executors.newCachedThreadPool();
+     public ExecutorService getExecutorService()
+     {
+         return exectorService;
+     }
 }
