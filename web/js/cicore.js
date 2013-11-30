@@ -62,5 +62,7 @@ $(function(){
         $.ajax(finalReq);
         
     });//实际的AJAX请求方法
+    
+    $('#leftTree')
 });
 

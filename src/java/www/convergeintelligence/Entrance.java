@@ -26,7 +26,7 @@ import java.util.logging.Level;
 public class Entrance extends HttpServlet {
 
     Logger log = Logger.getLogger("tst");
-
+    static String CommonPaht = "";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,6 +41,16 @@ public class Entrance extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(CommonPaht ==null || CommonPaht.length()<=0)
+        {
+            CommonPaht = this.getServletConfig().getServletContext().getInitParameter("CommonPath");
+        }
+        WebContext wc = WebContext.GetInstance();
+        if(!wc.getContext().containsKey(VerbDefine.CommonPaht))
+        {
+            wc.getContext().put(VerbDefine.CommonPaht, CommonPaht);
+        }
+        
         FileHandler fh = new FileHandler("c:\\mylog\\mylog.log");
         log.addHandler(fh);
         response.setContentType("application/x-javascript;charset=UTF-8");
