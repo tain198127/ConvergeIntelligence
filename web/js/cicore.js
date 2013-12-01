@@ -87,7 +87,7 @@ $(function() {
             display:'block',
             width:w+'px',
             height:h+'px'
-        });*/
+        })*/
         var sild = function(idx) {
             var nextIdx = (idx === psLength - 1)?0:idx + 1;
             var pos = $(finder.get(idx)).position();
