@@ -48,10 +48,10 @@ $(function() {
         timeout: 2500,
         type: 'POST'
     };
-    cicore_request = function(cfg){
+    cicore_request = function(cfg) {
         var str = $.toJSON(cfg.data);
-        $.extend(true,cfg,{data:str});
-        var req = $.extend(true,{},www_cicore_request,cfg);
+        $.extend(true, cfg, {data: str});
+        var req = $.extend(true, {}, www_cicore_request, cfg);
         $.ajax(req);
     };
     (function() {
@@ -71,37 +71,41 @@ $(function() {
 
                 });//实际的AJAX请求方法
     })();
-    
+
 
     (function() {
         var finder = $('#photoshow > li');
         finder.hide();
         $(finder.get(0)).show();
         var psLength = finder.length;
-        var h= finder.parent().height();
-        var w = finder.parent().width();
-        var timeSpan = 5000;
-        var timeoutHandler = '';
-        /*
-        finder.parent().css({
-            display:'block',
-            width:w+'px',
-            height:h+'px'
-        })*/
-        var sild = function(idx) {
-            var nextIdx = (idx === psLength - 1)?0:idx + 1;
-            var pos = $(finder.get(idx)).position();
-            $(finder.get(nextIdx)).css({
-                position:'absolute',
-                left:pos.left+'px',
-                top:pos.top+'px'
-            });
-            $(finder.get(idx)).fadeOut(timeSpan);
-            $(finder.get(nextIdx)).fadeIn(timeSpan, function() {
-               timeoutHandler = setTimeout(sild(nextIdx), timeSpan);
-            })
-        };
-        sild(0);
+        if (psLength > 0)
+        {
+
+            var h = finder.parent().height();
+            var w = finder.parent().width();
+            var timeSpan = 5000;
+            var timeoutHandler = '';
+            /*
+             finder.parent().css({
+             display:'block',
+             width:w+'px',
+             height:h+'px'
+             })*/
+            var sild = function(idx) {
+                var nextIdx = (idx === psLength - 1) ? 0 : idx + 1;
+                var pos = $(finder.get(idx)).position();
+                $(finder.get(nextIdx)).css({
+                    position: 'absolute',
+                    left: pos.left + 'px',
+                    top: pos.top + 'px'
+                });
+                $(finder.get(idx)).fadeOut(timeSpan);
+                $(finder.get(nextIdx)).fadeIn(timeSpan, function() {
+                    timeoutHandler = setTimeout(sild(nextIdx), timeSpan);
+                })
+            };
+            sild(0);
+        }
     })();
 });
 

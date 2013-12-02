@@ -15,8 +15,31 @@ and open the template in the editor.
         <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
         <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
         <script src="https://jquery-json.googlecode.com/files/jquery.json-2.4.min.js"></script>
+        <script src="js/cicore.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>login</div>
+        <div>
+            <input type="text" placeholder="用户名" id="username"/>
+            <input type="password" placeholder="密码" id="password"/>
+            <button id="loginBtn">确定</button>
+            <script>
+                $(function() {
+                    $('#loginBtn').on('click', function() {
+                        var cfg = {
+                            data: {
+                                action: 'Login',
+                                fullClass: 'www.convergeintelligence.Authentication',
+                                data: [$('#username').val(), $('password').val()]
+                            },
+                            success: function(data, textStatus, jqXHR) {
+                                alert(jqXHR.responseText);
+                            }
+                        };
+                        cicore_request(cfg);
+                    });
+                });
+            </script>
+        </div>
     </body>
 </html>
